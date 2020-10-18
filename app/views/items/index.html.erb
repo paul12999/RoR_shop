@@ -1,0 +1,45 @@
+<% content_for :header do %>
+<style>
+  
+</style>
+<body class="black-bg">
+
+<script>
+  jQuery(function($){
+   $('.add_cart').click(function(){
+     $.getJSON('/items/' + $(this).attr('data-value') + '/add_cart', function(json){
+      $('#cart_counter').html(json.counter);
+    });
+    return false;
+   });
+  })
+</script>
+<% end %>
+
+    <div class="slider-area position-relative owl-carousel2">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-9 col-md-10">
+                            <div class="hero__caption">
+							    <h1 data-animation="fadeInLeft" data-delay="0.4s">10 Best Aerosmith Albums</h1>
+                                <a href="https://www.aerosmith.com/" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">Get More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+        </div>
+    </div>
+
+<ul class="items">
+  <% @items.each do |item| %>
+    <li>
+      <%= image_tag item.cover.url(:icon) %>
+      <span class="name"><%= item.name %>(<%= item.price %>)</span>
+      <a href="#" class="add_cart" data-value="<%= item.id %>">加入購物車</a>
+    </li>
+
+
+  <% end %>
+</ul>

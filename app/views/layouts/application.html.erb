@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shop</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= javascript_pack_tag 'application' %>
+    <%= yield :header %>
+  </head
+  <body>
+	  
+	<h1><a>RoR 商城</a></h1>
+	<!-- <div>購物車數量：<span id="cart_counter"><%= get_cart_count %></span></div> -->
+	<br>
+	<%= session[:cart] %>
+	
+	<% if current_user %>
+	  <h6><a>HI</a></h6><%= current_user.email  %> , <%= link_to "登出" , destroy_user_session_path , :method => 'delete' , :style=> 'color:#FFFFFF;' %>
+	  
+    <% else %>
+		<%= link_to "登入", new_user_session_path , :style=> 'color:#FFFFFF;' , class: "a-primary" %>, <%= link_to "註冊" , new_user_registration_path, :style=> 'color:#FFFFFF;' , class: "a-primary" %>
+    <% end %>
+    
+	<hr/>
+    <%= will_paginate @paginate if @paginate %>
+    
+    <hr/>
+    
+ 
+    <%= yield %>
+    
+    <hr/>
+    <%= will_paginate @paginate if @paginate %>
+    
+  </body>
+</html>
