@@ -7,6 +7,8 @@
 
 * Gem devise
 
+* Gem Paperclip
+
 * Gem Faker
 
 * User註冊登入
