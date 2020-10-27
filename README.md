@@ -13,7 +13,7 @@
 
 * User註冊登入
 
-* Manager後台編輯
+* Manager後台編輯，導入Free Templates
 
 * Demo[shop](https://pacific-mesa-80149.herokuapp.com/)
 
